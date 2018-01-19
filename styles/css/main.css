@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+a{ color:#000;}
+  h2{
+	  color:#46427A; 
+      font-weight:bold; 
+      text-transform:uppercase; 
+      font-size:20px; 
+      text-align:center;
+	  
+	  }
+
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+    font-family: "Myriad Pro";
+    margin-bottom: 0;
+	padding-left:30px;
+	padding-bottom:0px;
+	padding-top:10px;
+    border: 0;
+    font-size: 14px !important;
+	text-transform:uppercase;
+    letter-spacing: 1px;
+	min-height:50px;
+    opacity:1;
+	font-weight:bold;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+    color:#000 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: !important;
+	border-bottom:thick solid #46427A;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+	  background-color: red;
+      padding: 25px;
+    }
+	.container{padding:0px; margin-bottom:5px; margin-top:5px;
+	}
+	
+	
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}  
+
+
+
+.thumbnail{ border:none;}
