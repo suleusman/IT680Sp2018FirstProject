@@ -94,10 +94,10 @@ if(isset($_POST['login'])){
     </div>
     <div class="col-lg-6 col-sm-6" > 
     <div class="form-group"> 
-        <table>
-   <tr><td colspan="2"> <span>Additional Payment:</span> <?php if(isset($msg5)){echo $msg5;}?></td></tr>
-   <td><input type="text" name="year" placeholder="Year" /> </td><td><input type="text" name="month" placeholder="Month" /></td>
-    </table>
+        
+    <span>Additional Payment Per:</span>
+   <input type="text" name="year" placeholder="Year" style="Width:45%;" /> <input type="text" name="month" placeholder="Month"  style="Width:45%;"/>
+    
      </div>
     </div>
     

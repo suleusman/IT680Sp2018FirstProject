@@ -41,7 +41,7 @@ $I = $_POST['interest'];
 $J = $I/(12*100);
 $L = $_POST['loan_duration'];
 $N = $L * 12;
-
+$loan_amount = $P;
 
 
 ?>
@@ -58,8 +58,8 @@ $N = $L * 12;
 
 <body>
     <?php include("include/menu.php"); ?>
-<div class="container" style="margin:auto; max-width:1000px; background-color:transparent; margin-top:100px;" >
-<div class="col-sm-6"> 
+<div class="container" style="margin:auto; max-width:1000px;  margin-top:100px;" >
+<div class="col-sm-6" style="margin-bottom:10px;"> 
 <div id="formbd">
 
     <h2>Mortgage Calculator</h2>
@@ -115,12 +115,10 @@ $N = $L * 12;
    <input type="text" name="down-payment"  <?Php echo 'value="'.$_POST["down_payment"].'"' ; ?> />
      </div>
     </div>
-    <div class="col-lg-6 col-sm-6" > 
-    <div class="form-group"> 
-        <table>
-   <tr><td colspan="2"> <span>Additional Payment:</span> <?php if(isset($msg5)){echo $msg5;}?></td></tr>
-   <td><input type="text" name="year"  <?Php echo 'value="'.$_POST["year"].'"' ; ?> /> </td><td><input type="text" name="month"   <?Php echo 'value="'.$_POST["month"].'"' ; ?>/></td>
-    </table>
+     <div class="col-lg-6 col-sm-6" > 
+    <div class="form-group">    
+    <span>Additional Payment Per:</span>
+   <input type="text" name="year" <?Php echo 'value="'.$_POST["year"].'"' ; ?> style="Width:45%;" /> <input type="text" name="month" <?Php echo 'value="'.$_POST["month"].'"' ; ?>  style="Width:45%;"/>
      </div>
     </div>
     
@@ -131,7 +129,7 @@ $N = $L * 12;
 </div>
 </div>
     <div class="col-sm-6">
-<div style="margin:auto; font-weight:; max-width:500px; border:thin #ccc solid; max-height:550px; min-height:550; border-radius:15px; background-color:#fefefe; color: #46427A; padding:10px; overflow-y:scroll;">
+<div style="margin:auto; max-width:500px; border:thin #46427A solid; max-height:550px; min-height:550; border-radius:10px; background-color:#fefefe; color:; padding:10px; overflow-y:scroll;">
     <h2>Amortization</h2>
     
     <p><b>Your Name:&nbsp;&nbsp;</b> <?Php echo $_POST["fname"].'  '.$_POST["lname"] ; ?></p>
@@ -149,12 +147,24 @@ $N = $L * 12;
         
     <?php
     $M = $P * ($J/(1-(1 + $J)**(-$N))); // fixed monthly payment
-        echo "Monthly payment = %0.2f".$M;
+        $month = 1;
+        $total_interest = 0;
     while($P > 0){
      $H = $P * $J; //curent monthly interest
      $C = $M - $H; //Monthly payment minus Monthly interest
      $Q = $P - $C; //Balance of your principal of your loan
-     $P = $Q; // set P equals to your principal balance
+     echo '<tr><td>'.$month.'</td><td>$'.number_format((float)$M, 2, '.', '').'</td><td>$'.number_format((float)$H, 2, '.', '').'</td><td>$'.number_format((float)$C, 2, '.', '').'</td><td>$'.number_format((float)$Q, 2, '.', '').'</td>';
+        $month = $month + 1;
+    if($Q < $M){
+       $M = $Q;
+        $C = $Q - $H;
+        $Q = 0;
+         echo '<tr><td>'.$month.'</td><td>$'.number_format((float)$M, 2, '.', '').'</td><td>$'.number_format((float)$H, 2, '.', '').'</td><td>$'.number_format((float)$C, 2, '.', '').'</td><td>$'.number_format((float)$Q, 2, '.', '').'</td>';
+      }
+      $total_interest = $total_interest + $H;  
+   $P = $Q; // set P equals to your principal balance
+        
+            
         
     }    
     ?>
@@ -166,6 +176,19 @@ $N = $L * 12;
 </div>
 </div>
 </div>
+    
+    <div class="container" style="margin:auto; max-width:950px;  margin-top:5px; background-color:#eee; padding:15px;" >
+    <div class="col-lg-4 col-sm-4" style="margin-bottom:10px;"> 
+    <span style="font-weight:bold;">Interest Saving: &nbsp;&nbsp;&#36;<?Php echo number_format((float)($loan_amount + $total_interest), 2, '.', ''); ?> </span>
+     </div>
+    <div class="col-lg-4 col-sm-4" style="margin-bottom:10px;"> 
+    <span style="font-weight:bold;">Payoff Early by: &nbsp;&nbsp;&#36;<?Php echo number_format((float)($loan_amount + $total_interest), 2, '.', ''); ?> </span>
+     </div>
+    <div class="col-lg-4 col-sm-4" style="margin-bottom:10px;"> 
+    <span style="font-weight:bold;">Loan + Interest: &nbsp;&nbsp;&#36;<?Php echo number_format((float)($loan_amount + $total_interest), 2, '.', ''); ?> </span>
+     </div>
+    </div>
+   
 <?php include("include/footer.php"); ?>
 
 </body>
