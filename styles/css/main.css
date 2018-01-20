@@ -1,11 +1,45 @@
 @charset "utf-8";
 /* CSS Document */
 
-a{ color:#000;}
+body{
+    background-color: #eee;
+    background: url(images/.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 50%;
+    background-color: #55186d;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-content: center;
+}
+
+input[type=submit]:hover {
+    background-color: #46427A;
+    color:#eee;
+}
   h2{
-	  color:#46427A; 
+	  color:#55186d; 
       font-weight:bold; 
-      text-transform:uppercase; 
+      text-transform: capitalize; 
       font-size:20px; 
       text-align:center;
 	  
@@ -20,8 +54,9 @@ a{ color:#000;}
 	padding-top:10px;
     border: 0;
     font-size: 14px !important;
-	text-transform:uppercase;
-    letter-spacing: 1px;
+	text-transform:capitalize;
+    background-color: #55186d;
+    letter-spacing: .5px;
 	min-height:50px;
     opacity:1;
 	font-weight:bold;
@@ -29,26 +64,60 @@ a{ color:#000;}
 
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand {
-    color:#000 !important;
+    color:#fff !important;
 }
 
 /* On hover, the links will turn white */
 .navbar-nav li a:hover {
-    color: !important;
-	border-bottom:thick solid #46427A;
+    color:#eee !important;
+	border-bottom:;
 }
 
 /* The active link */
 .navbar-nav li.active a {
+    color:#ddd;
     
+}
+/* Form body*/
+#formbd{
+    margin:auto; 
+    font-weight:; 
+    max-width:500px; 
+    border:thin #55186d solid; 
+    min-height:550px; 
+    border-radius:15px; 
+    background-color:#fff; 
+    color: #333; 
+    padding:10px;
 }
 
 /* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
     border-color: transparent;
 }
-
-   
+/* Format Amortization table */
+ table, th, td {
+    border: 0px solid #55186d;
+    border-collapse: collapse;
+}
+td {
+    padding: 10px;
+	
+}
+th {
+    padding: 10px;
+    text-align: center;
+}
+table#mytable tr:nth-child(even) {
+    background-color: #eee;
+}
+table#mytable tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#mytable th	{
+    background-color:#55186d;
+    color: white;
+}  
     /* Add a gray background color and some padding to the footer */
     footer {
 	  background-color: red;
