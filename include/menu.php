@@ -10,9 +10,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-          <li class=""><a href="index.php">Calculator</a></li>
-         <li><a href="amortization.php">Amortization</a></li>  
-        <li><a href="#">Contact</a></li>
+          <li class=""><a href="index.php">Mortgage Calculator</a></li> 
+         <li><a href="compare.php">Compare 2 Mortgage</a></li>  
+        <li><a href="contact.php">Contact</a></li>
        <li><a href="#"><span class="glyphicon glyphicon-"></span></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-"></span></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-"></span></a></li>

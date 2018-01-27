@@ -3,6 +3,24 @@
 session_start();
 
 if(isset($_POST['login'])){
+    if(empty($_POST['fname'])){
+    $msg1 = "First Name Required";
+    }else
+    if(empty($_POST['lname'])){
+    $msg2 = "Last Name Required";
+    }else
+    if(empty($_POST['amount'])){
+    $msg3 = "Loan Amount Required";
+    }else
+        if(empty($_POST['interest'])){
+        $msg4 = "Interest Rate required";
+    }else
+    if(empty($_POST['loan_duration'])){
+    $msg5 = "Loan duration Required";
+    }else
+    if(empty($_POST['payment_period'])){
+    $msg6 = "Select Payment Period";
+    }else{
     $firstname = $_POST['fname'];
 	$lastname = $_POST['lname'];
     $amount =$_POST['amount'];
@@ -12,6 +30,7 @@ if(isset($_POST['login'])){
 	$down_payment = $_POST['down_payment'];
 	$additional_payment_year = $_POST['year'];
 	$additional_payment_month = $_POST['month'];
+    }
 }
 
 
@@ -22,7 +41,7 @@ if(isset($_POST['login'])){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mortgage Calculator</title>
 
-</style>
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -45,7 +64,7 @@ if(isset($_POST['login'])){
 	</div>
     <div class="col-lg-6 col-sm-6" > 
     <div class="form-group"> 
-    <span>Last Name:</span><?php if(isset($msg1)){echo $msg1;}?> 
+    <span>Last Name:</span><?php if(isset($msg2)){echo $msg2;}?> 
     <input type="text" name="lname"  />
      </div>
 	</div>
@@ -79,7 +98,7 @@ if(isset($_POST['login'])){
     </div>
     <div class="col-lg-6 col-sm-6" > 
     <div class="form-group"> 
-    <span>Payment Period:</span> <?php if(isset($msg5)){echo $msg5;}?>
+    <span>Payment Period:</span> <?php if(isset($msg6)){echo $msg5;}?>
     <select name="payment_period">
     <option>Select</option>    
     <option>Monthly</option>        
@@ -88,7 +107,7 @@ if(isset($_POST['login'])){
     </div>
     <div class="col-lg-6 col-sm-6" > 
     <div class="form-group"> 
-    <span>Down Payment:</span> <?php if(isset($msg5)){echo $msg5;}?>
+    <span>Down Payment:</span>
    <input type="text" name="down_payment" placeholder="0 amount" />
      </div>
     </div>

@@ -2,12 +2,16 @@
 /* CSS Document */
 
 body{
-    background-color: #eee;
+    background-color: #fff;
     background: url(images/.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; 
+    font-size:14px; 
+    line-height:1.5;
+    letter-spacing:.5px;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 input[type=text], select {
@@ -47,7 +51,7 @@ input[type=submit]:hover {
 
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
-    font-family: "Myriad Pro";
+   line-height:1.5; font-family: Verdana, Geneva, sans-serif;
     margin-bottom: 0;
 	padding-left:30px;
 	padding-bottom:0px;
@@ -56,7 +60,6 @@ input[type=submit]:hover {
     font-size: 14px !important;
 	text-transform:capitalize;
     background-color: #55186d;
-    letter-spacing: .5px;
 	min-height:50px;
     opacity:1;
 	font-weight:bold;
@@ -80,6 +83,7 @@ input[type=submit]:hover {
 }
 /* Form body*/
 #formbd{
+    letter-spacing:.5px; line-height:1.5; font-family: Verdana, Geneva, sans-serif;
     margin:auto; 
     max-width:500px; 
     border:thin #55186d solid; 
